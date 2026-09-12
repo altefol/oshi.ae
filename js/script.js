@@ -8,7 +8,6 @@ AOS.init({
 
 async function loadVideos() {
     const container = document.getElementById("portfolio-grid");
-
     try {
         const response = await fetch("data/videoData.json");
         if (!response.ok) throw new Error("Ошибка загрузки файла данных");
@@ -53,7 +52,7 @@ async function loadVideos() {
     }
 }
 
-function createStars(count = 150) {
+function createStars(count = 100) {
     const container = document.body;
     for (let i = 0; i < count; i++) {
         const star = document.createElement('div');

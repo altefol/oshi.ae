@@ -17,7 +17,11 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Плавный скролл по якорям */
+    scroll-behavior: smooth; 
+}
+.container {
+    max-width: 1320px;
+    padding-left: 0.01rem !important;
 }
 
 body {
@@ -25,7 +29,7 @@ body {
     color: var(--text-color);
     font-family: var(--font-main);
     overflow-x: hidden;
-    padding-top: 80px;
+    padding-top: 76px !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,9 +47,25 @@ a {
     font-size: clamp(3rem, 8vw, 7rem);
     letter-spacing: 0.03em;
 }
+.hero-planet-img {
+    position: absolute;
+    bottom: -75%;
+    right: -25%; 
+    transform: translateY(-50%); 
+    height: 190vh;
+    width: auto;
+    max-width: none; 
+    z-index: 1; 
+    pointer-events: none; 
+    object-fit: contain;
+}
+
+.display-hero {
+    text-shadow: 0 10px 30px rgba(0,0,0,0.8); 
+}
 
 .section-title {
-    font-size: clamp(1.5rem, 4vw, 2rem); /* Адаптивный размер */
+    font-size: clamp(1.5rem, 4vw, 2rem); 
     color: var(--accent-color);
     margin-bottom: 2rem;
     letter-spacing: 0.05em;
@@ -65,6 +85,7 @@ a {
     background: rgba(5, 5, 5, 0.95) !important;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1050 !important;
 }
 
 .navbar-brand {
@@ -73,12 +94,24 @@ a {
 }
 
 .nav-link {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     transition: var(--transition-smooth);
 }
 
 .hover-accent:hover {
     color: var(--accent-color) !important;
+}
+.bg-accent {
+    background-color: var(--accent-color);
+}
+
+.ls-1 {
+    letter-spacing: 0.1em;
+}
+
+.backdrop-blur-sm {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 /* === КНОПКИ (КВАДРАТНЫЙ СТИЛЬ) === */
@@ -362,5 +395,41 @@ a {
     to {
         opacity: 0.8;
         transform: scale(1.2);
+    }
+}
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: var(--bg-color) !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 1.5rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1040;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.75rem 0 !important;
+        font-size: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+        .navbar-nav .nav-link:last-child {
+            border-bottom: none;
+        }
+}
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+        padding-left: 0.01rem !important;
+        padding-right: 0.01rem !important;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .container {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
     }
 }
