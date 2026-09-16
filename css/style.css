@@ -437,9 +437,7 @@ btn.btn-select.active {
         transform: scale(1.2);
     }
 }
-/* === КРИТИЧЕСКИЕ ИСПРАВЛЕНИЯ АДАПТИВА === */
 
-/* 1. ГАРАНТИРОВАННАЯ РАБОТА НАВИГАЦИИ НА МОБИЛЬНЫХ */
 @media (max-width: 991.98px) {
     .navbar-collapse {
         background-color: #050505 !important;
@@ -447,7 +445,7 @@ btn.btn-select.active {
         top: 100% !important;
         left: 0 !important;
         right: 0 !important;
-        z-index: 1060 !important; /* Выше navbar (1050) и всех декораций */
+        z-index: 1060 !important; 
         padding: 2rem 1.5rem !important;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
@@ -468,10 +466,9 @@ btn.btn-select.active {
     }
 }
 
-/* 2. КЛИКАБЕЛЬНОСТЬ ССЫЛОК В ФУТЕРЕ */
 footer {
     position: relative !important;
-    z-index: 100 !important; /* Выше звезд (-5) и планеты (1) */
+    z-index: 100 !important; 
 }
 
 footer a {
@@ -480,49 +477,57 @@ footer a {
     cursor: pointer !important;
     display: inline-block;
     padding: 10px 0;
-    margin: -10px 0; /* Увеличиваем область клика без визуальных изменений */
+    margin: -10px 0; 
 }
 
-/* 3. АДАПТИВ ПЛАНЕТЫ ДЛЯ МОБИЛЬНЫХ */
+
 @media (max-width: 991px) {
     .hero-planet-img {
         bottom: -30% !important;
         right: -60% !important;
         height: 70vh !important;
-        opacity: 0.4 !important; /* Делаем полупрозрачной, чтобы не мешать тексту */
-        z-index: 0 !important; /* Убираем под контент */
+        opacity: 0.4 !important; 
+        z-index: 0 !important; 
     }
-
     .hero-section {
         min-height: auto !important;
         padding-bottom: 3rem !important;
     }
-
-    /* Текст героя должен быть выше планеты */
     .hero-section .container {
         position: relative;
         z-index: 2 !important;
     }
 }
 
-/* 4. ОТКЛЮЧЕНИЕ ЗВЕЗД НА МОБИЛЬНЫХ (чтобы не перекрывали UI) */
 @media (max-width: 768px) {
     .star {
         display: none !important;
     }
 }
 
-/* 5. БЕЗОПАСНЫЕ ОТСТУПЫ КОНТЕЙНЕРА */
 .container {
     max-width: 1320px;
     margin-left: auto;
     margin-right: auto;
 }
 
-@media (min-width: 1400px) {
+@media (max-width: 1199.98px) {
     .container {
-        padding-left: 2rem !important;
-        padding-right: 2rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        max-width: 100% !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .container {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+    
+    body, html {
+        overflow-x: hidden !important;
+        width: 100% !important;
     }
 }
 
@@ -530,6 +535,13 @@ footer a {
     .container {
         padding-left: 1.5rem !important;
         padding-right: 1.5rem !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
     }
 }
 
