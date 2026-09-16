@@ -21,7 +21,7 @@ html {
 }
 .container {
     max-width: 1320px;
-    padding-left: 0.01rem !important;
+    padding-left: 0.000001rem !important;
 }
 
 body {
@@ -114,11 +114,10 @@ a {
     -webkit-backdrop-filter: blur(8px);
 }
 
-/* === КНОПКИ (КВАДРАТНЫЙ СТИЛЬ) === */
 .btn {
     border-radius: 0 !important;
     text-transform: uppercase;
-    font-weight: 400; /* Увеличил с 100 для лучшей читаемости */
+    font-weight: 400; 
     letter-spacing: 0.05em;
     padding: 12px 32px;
     transition: var(--transition-smooth);
@@ -158,6 +157,38 @@ a {
         box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.3);
     }
 
+.btn-select {
+    border: none;
+    background: transparent;
+    padding: 6px 20px; 
+    transition: all 0.3s ease !important;
+    position: relative; 
+    overflow: hidden;
+}
+
+    .btn-select::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: var(--accent-color);
+        transition: width 0.3s ease;
+    }
+
+    .btn-select:hover::after {
+        width: 80%;
+    }
+
+    .btn-select.active::after {
+        width: 100%;
+    }
+btn.btn-select.active {
+    width: 100%;
+    opacity: 1;
+}
 .hero-section {
     min-height: 80vh;
     padding-top: 50px;
@@ -178,7 +209,6 @@ a {
     background-color: #212529 !important;
 }
 
-/* === СПИСОК ЗАДАЧ === */
 .task-list-modern {
     list-style: none;
     padding: 0;
@@ -201,7 +231,6 @@ a {
             font-weight: bold;
         }
 
-/* === ЭФФЕКТ SPOTLIGHT (СВЕЧЕНИЕ ПРИ НАВЕДЕНИИ) === */
 .spotlight-card {
     position: relative;
     overflow: hidden;
@@ -225,17 +254,22 @@ a {
         opacity: 1;
     }
 
-    /* Поднимаем контент выше свечения */
     .spotlight-card > * {
         position: relative;
         z-index: 2;
     }
 
-/* === ПОРТФОЛИО (СЕТКА) === */
+.portfolio-item {
+    transition: opacity 0.3s ease;
+}
 .portfolio-link {
     display: block;
     height: 100%;
     color: inherit;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.portfolio-link.hidden {
+    display: none !important;
 }
 
 .overlay-play {
@@ -345,17 +379,19 @@ a {
 .marquee-container {
     overflow: hidden;
     width: 100%;
+    position: relative;
 }
 
 .marquee-content {
     display: flex;
     gap: 40px;
-    animation: marquee 25s linear infinite;
     white-space: nowrap;
     width: max-content;
-    will-change: transform; /* Оптимизация анимации */
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    animation: marquee 30s linear infinite;
 }
-
     .marquee-content span {
         font-size: 2rem;
         font-weight: 800;
@@ -363,13 +399,17 @@ a {
         color: rgba(255, 255, 255, 0.15);
     }
 
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+}
+
 @keyframes marquee {
     0% {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
     }
 
     100% {
-        transform: translateX(-50%);
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
@@ -419,17 +459,40 @@ a {
             border-bottom: none;
         }
 }
-@media (min-width: 1400px) {
-    .container {
-        max-width: 1320px;
-        padding-left: 0.01rem !important;
-        padding-right: 0.01rem !important;
+@media (max-width: 991px) {
+    .hero-planet-img {
+        bottom: -20%;
+        right: -50%;
+        height: 80vh;
+        opacity: 0.6; 
     }
+
+    .hero-section {
+        min-height: auto;
+        padding-bottom: 2rem;
+    }
+}
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: var(--bg-color) !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 1.5rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1040;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.75rem 0 !important;
+        font-size: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+        .navbar-nav .nav-link:last-child {
+            border-bottom: none;
+        }
 }
 
-@media (min-width: 1200px) and (max-width: 1399px) {
-    .container {
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
-    }
-}
+
