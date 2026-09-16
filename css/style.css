@@ -450,6 +450,19 @@ btn.btn-select.active {
         padding-bottom: 2rem;
     }
 }
+footer {
+    position: relative !important;
+    z-index: 100 !important; 
+}
+
+footer a {
+    position: relative !important;
+    z-index: 101 !important;
+    cursor: pointer !important;
+    /* Увеличиваем область клика для пальцев */
+    padding: 10px 0 !important; 
+    margin: -10px 0 !important;
+}
 @media (max-width: 991.98px) {
     .navbar-collapse {
         background-color: #050505 !important; 
