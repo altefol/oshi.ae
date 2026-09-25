@@ -568,15 +568,4 @@ footer a {
     }
 }
 
-@media (max-width: 768px) {
-    .star {
-        display: none !important;
-    }
-    
-    .hero-planet-img {
-        bottom: -50% !important;
-        opacity: 0.3 !important;
-    }
-}
-
 
