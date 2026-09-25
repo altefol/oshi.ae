@@ -293,7 +293,6 @@ btn.btn-select.active {
     border-color: rgba(72, 0, 255, 0.4) !important;
 }
 
-/* === ОТЗЫВЫ И АВАТАРКИ === */
 .avatar-placeholder {
     width: 40px;
     height: 40px;
@@ -330,7 +329,6 @@ btn.btn-select.active {
     filter: grayscale(0%);
 }
 
-/* === УСЛУГИ === */
 .service-card {
     transition: var(--transition-smooth);
 }
@@ -545,5 +543,40 @@ footer a {
     }
 }
 
+@media (max-width: 991px) {
+    footer {
+        position: relative !important;
+        z-index: 200 !important; 
+        background-color: #050505 !important;
+    }
+
+    footer a {
+        position: relative !important;
+        z-index: 201 !important;
+        cursor: pointer !important;
+        display: inline-block;
+        
+        padding: 15px 0 !important;
+        margin: -15px 0 !important;
+        
+        pointer-events: auto !important;
+    }
+
+    footer a::before,
+    footer a::after {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .star {
+        display: none !important;
+    }
+    
+    .hero-planet-img {
+        bottom: -50% !important;
+        opacity: 0.3 !important;
+    }
+}
 
 
