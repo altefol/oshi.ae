@@ -481,7 +481,7 @@ footer a {
 
 @media (max-width: 991px) {
     .hero-planet-img {
-        bottom: -30% !important;
+        bottom: -10% !important;
         right: -60% !important;
         height: 70vh !important;
         opacity: 0.4 !important; 
@@ -494,12 +494,6 @@ footer a {
     .hero-section .container {
         position: relative;
         z-index: 2 !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .star {
-        display: none !important;
     }
 }
 
